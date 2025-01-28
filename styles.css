@@ -1,0 +1,34 @@
+/* Main Stylesheet */
+
+/* Remove default margin from all elements
+   I want my divs to reach both the edges of the screen */
+* {
+    margin: 0;
+    box-sizing: border-box; /* Include padding and border in box width so that adding padding doesn't increase the width */
+}
+div {
+    padding: 0.5%;
+}
+@media screen and (min-width: 600px) {
+    #nav {
+        background-color: aquamarine;
+        width: 100%;
+        text-align: left;
+    }
+    #header {
+        background-color: aquamarine;
+        width: 100%;
+    }
+}
+/* For smaller screens the link to index.html is centered */
+@media screen and (max-width: 599px) {
+    #nav {
+        background-color: aquamarine;
+        width: 100%;
+        text-align: center;
+    }
+    #header {
+        background-color: aquamarine;
+        width: 100%;
+    }
+}

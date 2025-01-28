@@ -3,44 +3,59 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nathan Taylor - CSCN 315 First Assignment</title>
+    <link rel="stylesheet" href="styles.css">
     <!-- CSS Styling -->
     <style>
         body {
-            /* Center the body and add a margin so text doesn't go all the way to the edges of the screen */
             text-align: center;
-            margin-top: 40px;
-            margin-bottom: 40px;
-            margin-right: 140px;
-            margin-left: 140px;
-            line-height: 25px;
-
-            font-family: Lato-Regular, sans-serif;
+            background-color: mintcream;
+        }
+        /* Default margins for the content class */
+        .content {
+            margin-top: 2%;
+            margin-bottom: 0%;
+            margin-left: 10%;
+            margin-right: 10%;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
-    <h1>Nathan Taylor - CSCN 315</h1>
-    <br>
-    <hr>
+    <div id="nav">
+        <a href="page2.html">Page 2</a>
+    </div>
+    <div id="header">
+        <h1>Nathan Taylor - CSCN 315</h1>
+    </div>
     <!-- Items 1-4 in Assignment Instructions -->
-    <h2>About Me</h2>
-    <p>
-        My name is Nathan Taylor. I am an MK from Papua New Guinea, studying Computer Science:
-        Software Engineering and Data Science in my third year at Liberty University.
-        I have four siblings, two brothers and two sisters, and am the second born in my family.
-    </p>
-    <hr>
+    <div class="content">
+        <h2>About Me</h2>
+        <p>
+            My name is Nathan Taylor. I am an MK from Papua New Guinea, studying Computer Science:
+            Software Engineering and Data Science in my third year at Liberty University.
+            I have four siblings, two brothers and two sisters, and am the second born in my family.
+        </p>
+        <br>
+        <hr>
+    </div>
 
     <!-- Item 5 in Assignment Instructions -->
-    <h2>Website Project Idea</h2>
-    <p>
-        This semester I would like to create a website for famous cats throughout history.
-    </p>
-    <p>It might look something like <a href="https://www.litter-robot.com/blog/15-famous-cats-from-world-history/" target="_blank">this.</a></p>
-    <form>
-        <label for="fav-cat">What's your favorite cat?</label>
-        <input type="text" id="fav-cat" name="fav-cat">
-        <input type="submit">
-    </form>
+    <div class="content">
+        <h2>Website Project Idea</h2>
+        <p>
+            This semester I would like to create a website for famous cats throughout history.
+        </p>
+        <p>It might look something like <a href="https://www.litter-robot.com/blog/15-famous-cats-from-world-history/" target="_blank">this.</a></p>
+        <br>
+        <form>
+            <label for="fav-cat">What's your favorite cat?</label>
+            <input type="text" id="fav-cat" name="fav-cat">
+            <input type="submit">
+            <br>
+            <label for="pick-num">Pick a number:</label>
+            <input type="number" id="pick-num" name="pick-num">
+            <input type="submit">
+        </form>
+    </div>
 </body>
 </html>
