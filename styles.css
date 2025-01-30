@@ -20,7 +20,7 @@ div {
     font-size: 17px;
 }
 
-.topnav a.hover {
+.topnav a:hover {
     background-color: #ddd !important;
     color: black;
 }
