@@ -21,7 +21,7 @@ div {
 }
 
 .topnav a.hover {
-    background-color: #ddd;
+    background-color: #ddd !important;
     color: black;
 }
 
