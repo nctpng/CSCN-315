@@ -10,6 +10,12 @@ div {
     padding: 0.5%;
 }
 
+/* All text is centered by default */
+body {
+    text-align: center;
+    background-color: mintcream;
+}
+
 .topnav {
     overflow: hidden;
     background-color: #333;
