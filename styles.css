@@ -1,4 +1,7 @@
-/* Main Stylesheet */
+/* Extended stylesheet based on w3.css */
+
+@import "https://www.w3schools.com/w3css/4/w3.css";
+
 
 /* Remove default margin from all elements
    I want my divs to reach both the edges of the screen */
@@ -17,23 +20,21 @@ body {
     overflow: hidden;
     background-color: #333;
 }
-  
 .topnav a {
     float: left;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 14px;
+    border-radius: 3px;
 }
-
 .topnav a:hover {
-    background-color: #ddd;
+    background-color: #ced2d3;
     color: black;
 }
-
 .topnav a.active {
-    background-color: aquamarine;
+    background-color: #2196f3;
     color: black;
 }
 
