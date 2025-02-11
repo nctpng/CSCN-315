@@ -17,16 +17,92 @@
 
     <br>
 
+    <h2 id="greeting"></h2>
+
+    <br>
+
     <div class="w3-container" style="max-width: fit-content; margin: auto;">
-        <form style="text-align: right;">
-            <label for="fav-cat">What's your favorite cat?</label>
-            <input type="text" id="fav-cat" name="fav-cat">
-            <input type="submit">
+        <form id="info-form" style="text-align: left;">
+            <label for="name">Name</label><br>
+            <input type="text" id="name" name="name" required>
+            <br><br>
+            <label for="age">Age</label><br>
+            <input type="number" id="age" name="age" min="1" max="100" required>
+            <br><br>
+
+            <!-- Has pets option -->
+            <label for="pets">Do you have any pets?</label>
             <br>
-            <label for="pick-num">Pick a number:</label>
-            <input type="number" id="pick-num" name="pick-num">
-            <input type="submit">
+            <label for="yes">Yes</label>
+            <input type="radio" id="pet-yes" name="pets" value="yes" required>
+            <label for="no">No</label>
+            <input type="radio" id="pet-no" name="pets" value="no" required>
+            <br><br>
+
+            <!-- Additional questions for pets -->
+            <div id="pet-info" style="display: none;">
+                <label for="num-pets">Number of Pets</label><br>
+                <input type="number" id="num-pets" name="num-pets">
+                <br><br>
+                <label for="pet-name">Pet's Name</label><br>
+                <input type="text" id="pet-name" name="pet-name">
+                <br><br>
+                <label for="pet-birthday">Pet's Birthday</label><br>
+                <input type="date" id="pet-birthday" name="pet-birthday">
+                <br><br>
+            </div>
+            <input type="submit" value="Submit">
+
         </form>
     </div>
+
+    <script>
+        document.getElementById("pet-yes").addEventListener("click", function() {
+            document.getElementById("pet-info").style.display = "inline";
+        });
+        document.getElementById("pet-no").addEventListener("click", function() {
+            document.getElementById("pet-info").style.display = "none";
+        });
+
+        document.getElementById("info-form").addEventListener("submit", function(event) {
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            let pets = document.querySelector('input[name="pets"]:checked').value;
+            let numPets = document.getElementById("num-pets").value;
+            let petName = document.getElementById("pet-name").value;
+            let petBirthday = new Date(document.getElementById("pet-birthday").value);
+
+            let message = "";
+
+            // check for missing values
+            if (name === "" || age === "" || pets === "") {
+                alert("Please fill out all fields.");
+                event.preventDefault();
+                return;
+            }
+
+            message += "Hi " + name + "! You are " + age + " years old.\n";
+
+            if (pets === "yes") {
+                if (numPets === "" || petName === "" || petBirthday === "") {
+                    alert("Please fill out all fields.");
+                    event.preventDefault();
+                    return;
+                }
+
+                let curr = new Date();
+                let diff = curr - petBirthday;
+                let year = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+                diff -= year * (1000 * 60 * 60 * 24 * 365.25);
+                let month = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44));
+                diff -= month * (1000 * 60 * 60 * 24 * 30.44);
+                let day = Math.floor(diff / (1000 * 60 * 60 * 24)) - 1;
+
+                message += "Your pet " + petName + " is " + year + " years, " + month + " months, and " + day + " days old.";
+            }
+
+        document.getElementById("greeting").innerHTML = message;
+        });
+    </script>
 </body>
 </html>
