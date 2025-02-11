@@ -44,7 +44,7 @@ document.getElementById("info-form").addEventListener("submit", function(event) 
         diff -= year * (1000 * 60 * 60 * 24 * 365.25);
         let month = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44));
         diff -= month * (1000 * 60 * 60 * 24 * 30.44);
-        let day = Math.floor(diff / (1000 * 60 * 60 * 24)) - 1;
+        let day = Math.floor(diff / (1000 * 60 * 60 * 24));
 
         console.log("Pet Age: " + year + " years, " + month + " months, " + day + " days");
 
