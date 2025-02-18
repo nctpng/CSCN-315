@@ -4,11 +4,15 @@
 // Append one character to the display
 function appendDisplay(char) {
     const disp = document.getElementById("display");
+    let goodChars = "0123456789+-*/.()";
     if (disp.innerText == "0" && char != ".") {
         disp.innerText = char;
     }
-    else {
+    else if (goodChars.includes(char)) {
         disp.innerText += char;
+    }
+    else {
+        alert("Invalid character: " + char);
     }
 }
 
