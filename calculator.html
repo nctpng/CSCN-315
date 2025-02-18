@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        #calculator {
+            width: 250px;
+            border: 1px solid black;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            margin-top: 50px;
+            padding-bottom: 40px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #display {
+            width: 91%;
+            border: 1px solid black;
+            text-align: right;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: white;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+
+        .button {
+            font-size: 1.2em;
+            border: 1px solid black;
+            border-radius: 3px;
+            background-color: #e0e0e0;
+            cursor: pointer;
+        }
+
+        .dropdown_list {
+            position: relative;
+        }
+
+        .dropdown_button {
+            background-color: #0979ad;
+            color: white;
+            padding: 5px;
+            margin-top: 5px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            width: 60px;
+            border: 1px solid #ffffff;
+            position: absolute;
+            right: 0;
+            border-radius: 5px;
+        }
+
+        /* Drop-down menu based on https://www.geeksforgeeks.org/how-to-create-dropdown-list-using-javascript/ */
+        .themes {
+            display: none; /* Initially Hide the Dropdown List*/
+            position: absolute;
+            right: 0;
+            margin-top: 35px;
+            background-color: #f1f1f1;
+            min-width: 60px;
+        }
+
+        .themes li {
+            color: white;
+            padding: 5px;
+            display: block;
+            list-style: none;
+            background-color: #2f2f2f;
+            border: 1px solid white;
+            text-align: center;
+            font-family: Arial;
+            font-size: 13px;
+            margin: 0px;
+            text-decoration: none;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <div id="display">0</div>
+        <div class="buttons">
+            <button class="button", onclick="appendDisplay('7')">7</button>
+            <button class="button", onclick="appendDisplay('8')">8</button>
+            <button class="button", onclick="appendDisplay('9')">9</button>
+            <button class="button", onclick="appendDisplay('/')">/</button>
+
+            <button class="button", onclick="appendDisplay('4')">4</button>
+            <button class="button", onclick="appendDisplay('5')">5</button>
+            <button class="button", onclick="appendDisplay('6')">6</button>
+            <button class="button", onclick="appendDisplay('*')">*</button>
+
+            <button class="button", onclick="appendDisplay('1')">1</button>
+            <button class="button", onclick="appendDisplay('2')">2</button>
+            <button class="button", onclick="appendDisplay('3')">3</button>
+            <button class="button", onclick="appendDisplay('-')">-</button>
+
+            <p></p>
+            <button class="button", onclick="appendDisplay('0')">0</button>
+            <button class="button", onclick="appendDisplay('.')">.</button>
+            <button class="button", onclick="appendDisplay('+')">+</button>
+
+            <p></p>
+            <button class="button", onclick="deleteLast()">DEL</button>
+            <button class="button", onclick="clearDisplay()">C</button>
+            <button class="button", onclick="calculate()">=</button>
+        </div>
+
+        <div class="dropdown_list">
+            <button class="dropdown_button" onclick="toggleList()">Theme</button>
+            <div id="themes_container" class="themes">
+                <li class="theme", style="background-color: white; color: black;">Light</li>
+                <li class="theme", style="background-color: black; color: white;">Dark</li>
+                <li class="theme", style="background-color: blue;">Blue</li>
+                <li class="theme", style="background-color: green;">Green</li>
+                <li class="theme", style="background-color: red;">Red</li>
+            </div>
+        </div>
+    </div>
+    <script src="proj3.js"></script>
+</body>
+</html>
