@@ -1,7 +1,7 @@
 /* Project 5 code */
 
 // Add click event to image
-const img = document.getElementsByClassName("overlay-image")[0]
+const img = document.getElementsByClassName("overlay-image")
 img[0].onclick = function() { createOverlay.call(this); }
 
 // REQUIREMENT 1 - Create overlay of image when clicked
