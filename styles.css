@@ -46,3 +46,10 @@ body {
     margin-right: 10%;
     line-height: 1.5;
 }
+
+
+#info-form {
+    margin-top: 10px;
+    margin-right: 50px;
+    float: right;
+}

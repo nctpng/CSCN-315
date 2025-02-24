@@ -6,53 +6,28 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="styles.css">
 
-    <script>
-        // Variables to store the cat image, name, and description
-        let catImgIndex = 0; // Index of current cat
-        let catImages = ["img/tuxedo-stan.webp", "img/felicette_spacecat.jpg"];
-        let catNames = ["Tuxedo Stan", "Felicette"];
-        let catDesc = ["Tuxedo Stan was a cat from Halifax, Nova Scotia, Canada, who ran for mayor in 2012.",
-                       "Félicette was the first cat to go to space. She was launched on a French mission in October 1963."];
-
-        // Function to change the cat image, name, and description
-        function changeCat(dir) {
-            catImgIndex = (catImgIndex + dir + catImages.length) % catImages.length;
-            document.getElementById("cat-image").setAttribute("src", catImages[catImgIndex]);
-            document.getElementById("cat-name").innerHTML = catNames[catImgIndex];
-            document.getElementById("cat-desc").firstElementChild.innerHTML = catDesc[catImgIndex];
-        }
-
-        // Function to show/hide the cat description
-        function showDesc() {
-            let desc = document.getElementById("cat-desc");
-            desc.style.display = desc.style.display === "none" ? "inline" : "none";
-        }
-    </script>
 </head>
 <body>
     <div class="w3-bar w3-flat-midnight-blue topnav">
         <a class="active" href="index.html">Home</a>
-        <a href="page2.html">Page 2</a>
+        <!--<a href="page2.html">Page 2</a>-->
         <a href="form.html">Form</a>
         <a href="about.html">About</a>
-        <a href="calculator.html">Calculator</a>
     </div>
 
-    <!-- Item 5 in Assignment Instructions -->
     <div class="w3-container">
-        <h2>Website Project Idea</h2>
-        <p>
-            This semester I would like to create a website for famous cats throughout history.
-        </p>
+        <h2>Famous Cats in History</h2>
     </div>
 
     <br><br>
 
     <div class="w3-card", style="width:20%; margin: auto;">
         <div>
-            <img id="cat-image" src="img/tuxedo-stan.webp" alt="Tuxedo Stan" style="width:100%">
+            <!-- REQUIREMENT 2 - image -->
+            <img class="overlay-image", id="cat-image" src="", alt="Tuxedo Stan" style="width:100%">
         </div>
 
+        <!-- REQUIREMENT 1 - changing image -->
         <div style="display: flex;">
             <button class="w3-btn w3-block w3-blue" style="max-width: fit-content;" onclick="changeCat(-1)">&lt;</button>
             <button id="cat-name" class="w3-btn w3-block w3-blue" onclick="showDesc()">Tuxedo Stan</button>
@@ -64,6 +39,8 @@
         </div>
     </div>
 
-    <br><br>
+    <!-- Scripts -->
+    <script src="proj1.js"></script>
+    <script src="img-overlay.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <body>
     <div class="w3-bar w3-flat-midnight-blue topnav">
         <a href="index.html">Home</a>
-        <a href="page2.html">Page 2</a>
+        <!--<a href="page2.html">Page 2</a>-->
         <a class="active" href="form.html">Form</a>
         <a href="about.html">About</a>
     </div>
@@ -20,42 +20,50 @@
     <h2 id="greeting"></h2>
 
     <br>
+    <div class="w3-container">
+        <!-- REQUIREMENT 2 - image -->
+        <div class="w3-card overlay-image", style="float: right; margin-right: 30px;">
+            <img src="img/tornado.jpg" alt="Cat" style="height:100%">
+            <p>This is a picture of my family's cat.</p>
+        </div>
 
-    <div class="w3-container" style="max-width: fit-content; margin: auto;">
-        <form id="info-form" style="text-align: left;">
-            <label for="name">Name</label><br>
-            <input type="text" id="name" name="name" required>
-            <br><br>
-            <label for="age">Age</label><br>
-            <input type="number" id="age" name="age" min="1" max="100" required>
-            <br><br>
-
-            <!-- Has pets option -->
-            <label for="pets">Do you have any pets?</label>
-            <br>
-            <label for="yes">Yes</label>
-            <input type="radio" id="pet-yes" name="pets" value="yes" required>
-            <label for="no">No</label>
-            <input type="radio" id="pet-no" name="pets" value="no" required>
-            <br><br>
-
-            <!-- Additional questions for pets -->
-            <div id="pet-info" style="display: none;">
-                <label for="num-pets">Number of Pets</label><br>
-                <input type="number" id="num-pets" name="num-pets">
+        <div class="w3-container", id="info-form">
+            <form id="info-form" style="text-align: left;">
+                <label for="name">Name</label><br>
+                <input type="text" id="name" name="name" required>
                 <br><br>
-                <label for="pet-name">Pet's Name</label><br>
-                <input type="text" id="pet-name" name="pet-name">
+                <label for="age">Age</label><br>
+                <input type="number" id="age" name="age" min="1" max="100" required>
                 <br><br>
-                <label for="pet-birthday">Pet's Birthday</label><br>
-                <input type="date" id="pet-birthday" name="pet-birthday">
-                <br><br>
-            </div>
-            <input type="submit" value="Submit">
 
-        </form>
+                <!-- Has pets option -->
+                <label for="pets">Do you have any pets?</label>
+                <br>
+                <label for="yes">Yes</label>
+                <input type="radio" id="pet-yes" name="pets" value="yes" required>
+                <label for="no">No</label>
+                <input type="radio" id="pet-no" name="pets" value="no" required>
+                <br><br>
+
+                <!-- Additional questions for pets -->
+                <div id="pet-info" style="display: none;">
+                    <label for="num-pets">Number of Pets</label><br>
+                    <input type="number" id="num-pets" name="num-pets">
+                    <br><br>
+                    <label for="pet-name">Pet's Name</label><br>
+                    <input type="text" id="pet-name" name="pet-name">
+                    <br><br>
+                    <label for="pet-birthday">Pet's Birthday</label><br>
+                    <input type="date" id="pet-birthday" name="pet-birthday">
+                    <br><br>
+                </div>
+                <input type="submit" value="Submit">
+
+            </form>
+        </div>
     </div>
 
     <script src="proj2.js"></script>
+    <script src="img-overlay.js"></script>
 </body>
 </html>
