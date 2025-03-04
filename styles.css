@@ -53,3 +53,35 @@ body {
     margin-right: 50px;
     float: right;
 }
+
+#registration {
+    margin: auto;
+    text-align: right;
+}
+
+input {
+    margin: 5px;
+    border: 2px solid #ccc;
+    padding: 8px;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+}
+
+.error-message {
+    display: none;
+    font-size: 10px;
+    color: red;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+input:user-invalid {
+    border-color: red;
+}
+
+input:user-valid {
+    border-color: green;
+}
+
+
