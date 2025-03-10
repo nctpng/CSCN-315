@@ -1,5 +1,5 @@
 
-// Check whether each of the fields of the registration form are valid
+// On form submission, check that all fields are valid
 function validateForm(event) {
     event.preventDefault();
     const form = document.forms.registration;
@@ -7,24 +7,27 @@ function validateForm(event) {
     try {
         // Check validity of each field
         if (!validateFullname(form) || !validateUsername(form) || !validateEmail(form)
-            || !validatePassword(form) || !validateConfirm(form) || !validatePhone(form)
+            || !validatePassword(form) || !validatePhone(form)
             || !validateDOB(form) || !validateTerms(form))
         { return; }
     } 
     catch(err) {
         console.error(err);
         alert("An error occurred. Please try again.");
+        window.alert(err);
+        return;
     }
 
     alert("Registration successful!");
     form.reset();
 }
 
+
 // Functions to check the validity of each field
 
 function validateFullname(form) {
     const fullname = form.fullname.value;
-    const msg = form.fullname.nextElementSibling.nextElementSibling;
+    const msg = document.getElementById("fullname").getElementsByClassName("error-message")[0];
 
     if (!/^[a-z]/i.test(fullname)) {
         msg.style.display = "block";
@@ -36,7 +39,7 @@ function validateFullname(form) {
 
 function validateUsername(form) {
     const username = form.username.value;
-    const msg = form.username.nextElementSibling.nextElementSibling;
+    const msg = document.getElementById("username").getElementsByClassName("error-message")[0];
 
     if (!/^[a-z1-9]/i.test(username)) {
         msg.style.display = "block";
@@ -48,7 +51,7 @@ function validateUsername(form) {
 
 function validateEmail(form) {
     const email = form.email.value;
-    const msg = form.email.nextElementSibling.nextElementSibling;
+    const msg = document.getElementById("email").getElementsByClassName("error-message")[0];
 
     if (!/^[^@]+@[^@]+\.[^@]+$/.test(email)) {
         msg.style.display = "block";
@@ -58,9 +61,8 @@ function validateEmail(form) {
     return true;
 }
 
-function validatePassword(form) {
-    const password = form.password.value;
-    const msg = form.password.nextElementSibling.nextElementSibling;
+// Helper function for validatePassword()
+function setPasswordErr(password, msg) {
     let validPassword = true;
 
     if (password.length < 8) {
@@ -84,35 +86,44 @@ function validatePassword(form) {
         validPassword = false;
     }
 
-    if (!validPassword) {
-        msg.style.display = "block";
-        return false;
-    }
-
-    msg.style.display = "none";
-    return true;
+    return validPassword;
 }
 
-function validateConfirm(form) {
-    const password = form.password.value;
-    const confirm = form.confirm.value;
-    const msg = form.confirm.nextElementSibling.nextElementSibling;
-    const msg2 = form.password.nextElementSibling.nextElementSibling;
-
-    if (password !== confirm) {
-        msg.style.display = "block";
-        msg2.style.display = "block";
-
-        msg.textContent = "Passwords do not match.";
-        msg2.textContent = "Passwords do not match.";
-        return false;
+function validatePassword(form) {
+    const msg_password = document.getElementById("password").getElementsByClassName("error-message")[0];
+    const msg_confirm = document.getElementById("confirm").getElementsByClassName("error-message")[0];
+    let validPasswords = true;
+    
+    // Check if the passwords match
+    if (form.password.value !== form.confirm.value) {
+        msg_password.textContent = "Passwords do not match.";
+        msg_confirm.textContent = "Passwords do not match.";
     }
-    return true;
+
+    // Check if the password has an error
+    if (!setPasswordErr(form.password.value, msg_password) || form.password.value !== form.confirm.value) {
+        document.getElementById("password").classList.add("error");
+        validPasswords = false;
+    }
+    else {
+        document.getElementById("password").classList.remove("error");
+    }
+
+    // Check if the confirm password has an error
+    if (!setPasswordErr(form.confirm.value, msg_confirm) || form.password.value !== form.confirm.value) {
+        document.getElementById("confirm").classList.add("error");
+        validPasswords = false;
+    }
+    else {
+        document.getElementById("confirm").classList.remove("error");
+    }
+
+    return validPasswords;
 }
 
 function validatePhone(form) {
     const phone = form.phone.value;
-    const msg = form.phone.nextElementSibling.nextElementSibling;
+    const msg = document.getElementById("phone").getElementsByClassName("error-message")[0];
 
     if (!/^\d{10}$/.test(phone)) {
         msg.style = "block";
@@ -124,7 +135,7 @@ function validatePhone(form) {
 
 function validateDOB(form) {
     const dob = form.dob.value;
-    const msg = form.dob.nextElementSibling.nextElementSibling;
+    const msg = document.getElementById("dob").getElementsByClassName("error-message")[0];
 
     if (!/^\d{4}-\d{2}-\d{2}$/.test(dob)) {
         msg.style.display = "block";
@@ -143,7 +154,7 @@ function validateDOB(form) {
 
 function validateTerms(form) {
     const terms = form.terms.checked;
-    const msg = form.terms.nextElementSibling.nextElementSibling;
+    const msg = document.getElementById("terms").getElementsByClassName("error-message")[0];
 
     if (!terms) {
         msg.style.display = "block";
