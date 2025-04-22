@@ -1,0 +1,45 @@
+body {
+    text-align: center;
+    margin: 20px;
+}
+
+#timer {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#puzzle {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 5px;
+    justify-content: center;
+}
+
+.piece {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ccc;
+    background-size: 300px 300px;
+    cursor: grab;
+}
+
+/* Make it obvious which pieces are in the correct position */
+.locked {
+    cursor: default;
+    opacity: 0.6;
+}
+
+#success {
+    margin-top: 20px;
+    font-size: 20px;
+    color: green;
+}
+
+#reset {
+    background-color: silver;
+    margin: 15px auto auto auto;
+    padding: 8px 16px;
+    font-size: 16px;
+    max-width: fit-content;
+    align-self: center;
+}
