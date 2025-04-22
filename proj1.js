@@ -1,9 +1,3 @@
-// Variables to store the cat image, name, and description
-let catImgIndex = 0; // Index of current cat
-let catImages = ["img/tuxedo-stan.jpg", "img/felicette-spacecat.jpg"];
-let catNames = ["Tuxedo Stan", "Felicette"];
-let catDescs = ["Tuxedo Stan was a cat from Halifax, Nova Scotia, Canada, who ran for mayor in 2012.",
-               "Félicette was the first cat to go to space. She was launched on a French mission in October 1963."];
 
 // Variables
 const catImage = document.getElementById("cat-image");

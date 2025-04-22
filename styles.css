@@ -46,7 +46,7 @@ body {
     margin-right: 10%;
     line-height: 1.5;
 }
-
+    
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -75,13 +75,19 @@ form {
     gap: 10px;
 }
 
-.form-grid {
+.form-grid-1-2 {
     display: grid;
     grid-template-columns: 1fr 2fr;
     align-items: center;
 }
 
-.form-grid label {
+.form-grid-1-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: right;
+}
+
+.form-grid-1-2 label, .form-grid-1-1 label {
     text-align: right;
 }
 
@@ -93,7 +99,6 @@ form {
 input {
     margin: 5px;
     border: 2px solid #ccc;
-    padding: 8px;
     outline: none;
     transition: border 0.3s ease-in-out;
 }

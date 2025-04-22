@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizable Page</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="w3-bar w3-flat-midnight-blue topnav">
+        <a href="index.html">Home</a>
+        <a href="user-reg.html">Registration</a>
+        <a href="form.html">Form</a>
+        <a class="active" href="customize.html">Customize</a>
+        <a href="about.html">About</a>
+    </div>
+
+    <div class="w3-container form-container">
+        <h1>Customize This Page</h1>
+        <form id="customizationForm">
+
+            <div class="form-grid-1-1">
+                <label>Background Color:</label>
+                <input type="color" name="bgColor" value="#ffffff">
+            </div>
+            <div class="form-grid-1-1">
+                <label>Text Color:</label>
+                <input type="color" name="textColor" value="#000000">
+            </div>
+            <div class="form-grid-1-1">
+                <label>Font Size:</label>
+                <input type="number" name="fontSize" min="10" max="100" value="16">
+            </div>
+
+            <button type="submit">Apply</button>
+        </form>
+        <br>
+        <p>This is some sample text to show your customization.</p>
+    </div>
+
+    <script src="proj9.js"></script>
+</body>
+</html>

@@ -12,6 +12,7 @@
         <a href="index.html">Home</a>
         <a href="user-reg.html">Registration</a>
         <a class="active" href="form.html">Form</a>
+        <a href="customize.html">Customize</a>
         <a href="about.html">About</a>
     </div>
 
@@ -20,74 +21,68 @@
         <p id="pet-info-output"></p>
     </div>
 
-    <div class="grid-container"> 
-        <div class="w3-container form-container">
-            <form id="infoform" onsubmit="submitForm(event)">
-                <div class="form-grid">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" pattern="^[a-zA-Z ]+$" required>
-                    <span class="error-message">Only letters and spaces are allowed.</span>
-                </div>
+    <div class="w3-container form-container">
+        <form id="infoform" onsubmit="submitForm(event)">
+            <div class="form-grid-1-2">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" pattern="^[a-zA-Z ]+$" required>
+                <span class="error-message">Only letters and spaces are allowed.</span>
+            </div>
 
-                <div class="form-grid">
-                    <label for="age">Age:</label>
-                    <input type="number" id="age" name="age" min="1" max="100" required>
+            <div class="form-grid-1-2">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="1" max="100" required>
+            </div>
+            
+            <!-- Has pets option -->
+            <div>
+                <label for="pets">Do you have any pets?</label><br>
+                <label for="yes">Yes</label>
+                <input type="radio" id="pet-yes" name="pets" value="yes" required>
+                <label for="no">No</label>
+                <input type="radio" id="pet-no" name="pets" value="no" required>
+            </div>
+
+            <!-- Additional questions for pets -->
+            <div id="pet-info" style="display: none;">
+                <div class="form-grid-1-2">
+                    <label for="num-pets">Number of pets:</label>
+                    <input type="number" id="num-pets" name="num-pets" min="1" max="100">
                 </div>
                 
-                <!-- Has pets option -->
+                <br>
                 <div>
-                    <label for="pets">Do you have any pets?</label><br>
-                    <label for="yes">Yes</label>
-                    <input type="radio" id="pet-yes" name="pets" value="yes" required>
-                    <label for="no">No</label>
-                    <input type="radio" id="pet-no" name="pets" value="no" required>
+                    <label for="pet-types">Which of these pets do you have?</label><br>
+                    <label for="dog">Dog</label>
+                    <input type="checkbox" id="dog" name="pet-types" value="dog">
+                    &nbsp;&nbsp;
+                    <label for="cat">Cat</label>
+                    <input type="checkbox" id="cat" name="pet-types" value="cat">
+                    &nbsp;&nbsp;
+                    <label for="bird">Bird</label>
+                    <input type="checkbox" id="bird" name="pet-types" value="bird">
+                    &nbsp;&nbsp;
+                    <label for="fish">Fish</label>
+                    <input type="checkbox" id="fish" name="pet-types" value="fish">
                 </div>
-
-                <!-- Additional questions for pets -->
-                <div id="pet-info" style="display: none;">
-                    <div class="form-grid">
-                        <label for="num-pets">Number of pets:</label>
-                        <input type="number" id="num-pets" name="num-pets" min="1" max="100">
-                    </div>
-                    
-                    <br>
-                    <div>
-                        <label for="pet-types">Which of these pets do you have?</label><br>
-                        <label for="dog">Dog</label>
-                        <input type="checkbox" id="dog" name="pet-types" value="dog">
-                        &nbsp;&nbsp;
-                        <label for="cat">Cat</label>
-                        <input type="checkbox" id="cat" name="pet-types" value="cat">
-                        &nbsp;&nbsp;
-                        <label for="bird">Bird</label>
-                        <input type="checkbox" id="bird" name="pet-types" value="bird">
-                        &nbsp;&nbsp;
-                        <label for="fish">Fish</label>
-                        <input type="checkbox" id="fish" name="pet-types" value="fish">
-                    </div>
-                    <br>
-                    
-                    <div class="form-grid">
-                        <label for="pet-name">A pet's name:</label>
-                        <input type="text" id="pet-name" name="pet-name">
-                    </div>
-                    
-                    <div class="form-grid">
-                        <label for="pet-birthday">A pet's birthday:</label>
-                        <input type="date" id="pet-birthday" name="pet-birthday">
-                    </div>
+                <br>
+                
+                <div class="form-grid-1-2">
+                    <label for="pet-name">A pet's name:</label>
+                    <input type="text" id="pet-name" name="pet-name">
                 </div>
+                
+                <div class="form-grid-1-2">
+                    <label for="pet-birthday">A pet's birthday:</label>
+                    <input type="date" id="pet-birthday" name="pet-birthday">
+                </div>
+            </div>
 
-                <input type="file" id="file" name="file" accept=".txt, image/*">
-                
-                <input type="submit" value="Submit">
-                
-            </form>
-        </div>
-        <div class="w3-card overlay-image">
-            <img src="img/tornado.jpg" alt="Cat">
-            <p>Here is a picture of my family's cat.</p>
-        </div>
+            <input type="file" id="file" name="file" accept=".txt, image/*">
+            
+            <input type="submit" value="Submit">
+            
+        </form>
     </div>
 
     <div id="file-content" class="w3-card" style="width: 50%; margin: auto; background-color: white; padding: 20px;">

@@ -12,48 +12,49 @@
         <a href="index.html">Home</a>
         <a class="active" href="user-reg.html">Registration</a>
         <a href="form.html">Form</a>
+        <a href="customize.html">Customize</a>
         <a href="about.html">About</a>
     </div>
 
     <div class="w3-container form-container">
         <form id="registration" onsubmit="validateForm(event)">
-            <div class="form-grid" id="fullname">
+            <div class="form-grid-1-2" id="fullname">
                 <label for="fullname">Full Name:</label>
                 <input type="text" name="fullname" pattern="^[a-zA-Z ]+$" required>
                 <span class="error-message">Only letters and spaces are allowed.</span>
             </div>
             
-            <div class="form-grid" id="username">
+            <div class="form-grid-1-2" id="username">
                 <label for="username">Username:</label>
                 <input type="text" name="username" pattern="[a-zA-Z0-9]+" required>
                 <span class="error-message">Only letters and numbers are allowed.</span>
             </div>
 
-            <div class="form-grid" id="email">
+            <div class="form-grid-1-2" id="email">
                 <label for="email">Email:</label>
                 <input type="email" name="email" pattern="^[^@]+@[^@]+\.[^@]+$" required>
                 <span class="error-message">Invalid email address.</span>
             </div>
 
-            <div class="form-grid" id="password">
+            <div class="form-grid-1-2" id="password">
                 <label for="password">Password:</label>
                 <input type="password" name="password" pattern=".{8}.*" required>
                 <span class="error-message">Password must be at least 8 characters.</span>
             </div>
 
-            <div class="form-grid" id="confirm">
+            <div class="form-grid-1-2" id="confirm">
                 <label for="confirm">Confirm Password:</label>
                 <input type="password" name="confirm" pattern=".{8}.*" required>
                 <span class="error-message">Password must be at least 8 characters.</span>
             </div>
 
-            <div class="form-grid" id="phone">
+            <div class="form-grid-1-2" id="phone">
                 <label for="phone">Phone Number:</label>
                 <input type="tel" name="phone" pattern="[0-9]{10}" required>
                 <span class="error-message">Phone number must be 10 digits.</span>
             </div>
 
-            <div class="form-grid" id="dob">
+            <div class="form-grid-1-2" id="dob">
                 <label for="dob">Date of Birth:</label>
                 <input type="date" name="dob" pattern=".*" required>
                 <span class="error-message">Please enter a date.</span>
