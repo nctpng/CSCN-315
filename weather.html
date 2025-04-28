@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lynchburg Weather</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="w3-bar w3-flat-midnight-blue topnav">
+        <a href="index.html">Home</a>
+        <a href="user-reg.html">Registration</a>
+        <a href="form.html">Form</a>
+        <a href="customize.html">Customize</a>
+        <a href="game.html">Puzzle Game</a>
+        <a class="active" href="weather.html">Lynchburg Weather</a>
+        <a href="about.html">About</a>
+    </div>
+
+    <h2>Lynchburg Weather</h2>
+    <br>
+
+    <div class="w3-container" style="width: 33%; margin: auto; float: left;">
+        <div class="w3-card">
+            <div class="w3-container w3-blue">
+                <h2>Temperature (F)</h2>
+            </div>
+            <div class="w3-container">
+                <table>
+                    <tr>
+                        <th style="width: 10%"></th>
+                        <th>Min</th>
+                        <th>Current</th>
+                        <th>Max</th>
+                    </tr>
+                    <tr>
+                        <td>Temperature</td>
+                        <td id="temperature_2m_min"></td>
+                        <td id="temperature_2m"></td>
+                        <td id="temperature_2m_max"></td>
+                    </tr>
+                    <tr>
+                        <td>Feels Like</td>
+                        <td id="apparent_temperature_min"></td>
+                        <td id="apparent_temperature"></td>
+                        <td id="apparent_temperature_max"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-container" style="width: 33%; margin: auto; float: left;">
+        <div class="w3-card">
+            <div class="w3-container w3-blue">
+                <h2>Wind and Precipitation</h2>
+            </div>
+            <div class="w3-container" style="text-align: left; padding: 10px;">
+                <p>
+                    <b><span>Wind Speed: </span></b>
+                    <span id="wind_speed_10m_max"></span>
+                </p><br>
+                <p>
+                    <b><span>Wind Direction: </span></b>
+                    <span id="wind_direction_10m_dominant"></span>
+                </p><br>
+                <p>
+                    <b><span>Precipitation Sum: </span></b>
+                    <span id="precipitation_sum"></span>
+                </p><br>
+                <p>
+                    <b><span>Weather Code: </span></b>
+                    <span id="weather_code"></span>
+                </p><br>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-container" style="width: 33%; margin: auto; float: left;">
+        <div class="w3-card">
+            <div class="w3-container w3-blue">
+                <h2>Sun and Humidity</h2>
+            </div>
+            <div class="w3-container" style="text-align: left; padding: 10px;">
+                <p>
+                    <b><span>Sunrise: </span></b>
+                    <span id="sunrise"></span>
+                </p><br>
+                <p>
+                    <b><span>Sunset: </span></b>
+                    <span id="sunset"></span>
+                </p><br>
+                <p>
+                    <b><span>Humidity: </span></b>
+                    <span id="relative_humidity_2m"></span>
+                </p><br>
+            </div>
+        </div>
+
+
+    <script src="proj11.js"></script>
+</body>
+</html>
