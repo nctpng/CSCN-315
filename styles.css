@@ -77,6 +77,10 @@ table, th, td {
     padding: 5px;
 }
 
+.weather {
+    display: none;
+}
+
 form {
     display: grid;
     gap: 10px;

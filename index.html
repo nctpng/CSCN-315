@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nathan Taylor - CSCN 315 First Assignment</title>
+    <title>About</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
     <div class="w3-bar w3-flat-midnight-blue topnav">
@@ -15,35 +15,29 @@
         <a href="customize.html">Customize</a>
         <a href="game.html">Puzzle Game</a>
         <a href="weather.html">Lynchburg Weather</a>
-        <a href="about.html">About</a>
+        <a href="scatterplot.html">Scatter Plot</a>
     </div>
 
-    <div class="w3-container">
-        <h2>Header</h2>
+    <!-- Items 1-4 in Assignment Instructions -->
+    <div class="w3-container content">
+        <h2>About Me</h2>
+        <p>
+            My name is Nathan Taylor. I am an MK from Papua New Guinea, studying Computer Science:
+            Software Engineering and Data Science in my third year at Liberty University.
+            I have four siblings, two brothers and two sisters, and am the second born in my family.
+        </p>
+    </div>
+
+    <br>
+
+    <!-- REQUIREMENT 2 - image -->
+    <div class="w3-card" style="max-width: fit-content; margin: auto;">
+        <img class="overlay-image", src="img/ukarumpa.jpg" alt="Ukarumpa" style="height:50%">
+        <p>This is my home town, Ukarumpa</p>
     </div>
 
     <br><br>
 
-    <div class="w3-card", style="width:20%; margin: auto;">
-        <div>
-            <!-- REQUIREMENT 2 - image -->
-            <img class="overlay-image", id="cat-image" src="", alt="Tuxedo Stan" style="width:100%">
-        </div>
-
-        <!-- REQUIREMENT 1 - changing image -->
-        <div style="display: flex;">
-            <button class="w3-btn w3-block w3-blue" style="max-width: fit-content;" onclick="changeCat(-1)">&lt;</button>
-            <button id="cat-name" class="w3-btn w3-block w3-blue" onclick="showDesc()">Tuxedo Stan</button>
-            <button class="w3-btn w3-block w3-blue" style="max-width: fit-content;" onclick="changeCat(1)">&gt;</button>
-        </div>
-
-        <div id="cat-desc" style="display: none; font-size: 12px;">
-            <p style="margin: 2px 2px 2px 2px;">Tuxedo Stan was a cat from Halifax, Nova Scotia, Canada, who ran for mayor in the 2012 municipal election.</p>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="proj1.js"></script>
     <script src="img-overlay.js"></script>
 </body>
 </html>

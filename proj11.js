@@ -1,11 +1,12 @@
 
-// Open Meteo API does not require an API key
-const lat = 37.4149
-const lon = -79.1422
+
+
+// Lat and Lon data file
+let lat_lon_file = "city_lat_lon.json"
+
+// Data to get from Open Meteo API
 const daily_vars = 'weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,precipitation_sum,wind_speed_10m_max,wind_direction_10m_dominant'
 const curr_vars = 'apparent_temperature,temperature_2m,relative_humidity_2m'
-const fetch_url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=${daily_vars}&timezone=auto&forecast_days=1&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`
-const xml_url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=${curr_vars}&timezone=auto&forecast_days=1&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`
 
 // Weather codes from Open Meteo API
 const wmo_codes = new Map([
@@ -55,8 +56,43 @@ let weather_data = new Map([
     ["relative_humidity_2m", 0]
 ])
 
-// Fetch daily weather data from Open Meteo API
-fetch(fetch_url)
+
+// Get the lat and lon for the city from the local json file,
+// then call the function to get weather data from Open Meteo API
+function get_lat_lon(city) {
+    console.log("Fetching weather for " + city);
+
+    // Read the lat and lon data from the local json file
+    fetch(lat_lon_file)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok: " + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Find the city in the data
+        let city_data = data.find(item => item.city_name === city);
+        if (city_data) {
+            let lat = city_data.lat;
+            let lon = city_data.lon;
+            get_weather(lat, lon, city); // Call the function to get weather data
+        } else {
+            console.error("City not found in the data.");
+        }
+    })
+    .catch(error => {
+        console.error("Error fetching lat/lon data:", error);
+    });
+}    
+
+// Get the weather data from Open Meteo API using the lat and lon
+function get_weather(lat, lon, city) {
+    let fetch_url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=${daily_vars}&timezone=auto&forecast_days=1&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`
+    let xml_url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=${curr_vars}&timezone=auto&forecast_days=1&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`
+
+    // Fetch daily weather data from Open Meteo API
+    fetch(fetch_url)
     .then(response => {
         if (!response.ok) {
             throw new Error("API call error: " + response.statusText);
@@ -64,9 +100,7 @@ fetch(fetch_url)
         return response.json();
     })
     .then(data => { // Add the daily weather data to the weather_data map
-        console.log(data);
         process_daily_data(weather_data, data);
-        console.log(weather_data);
         return weather_data;
     })
     .then(weather_data => { // Update the html elements with the daily weather data
@@ -74,9 +108,8 @@ fetch(fetch_url)
             element = document.getElementById(key);
             if (element) {
                 element.innerHTML = value;
-                console.log(key, value, element);
             } else {
-                console.log(`Element with id ${key} not found.`);
+                console.error(`Element with id ${key} not found.`);
             }
         }
     })
@@ -84,29 +117,26 @@ fetch(fetch_url)
         console.error("Error fetching weather data:", error);
     });
 
-// Use XMLHttpRequest to fetch current data from Open Meteo API
-const xhr = new XMLHttpRequest();
-xhr.open("GET", xml_url, true);
+    // Use XMLHttpRequest to fetch current data from Open Meteo API
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", xml_url, true);
 
-xhr.onreadystatechange = function () {
+    xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
         if (xhr.status === 200) {
             // Parse the JSON response
             const data = JSON.parse(xhr.responseText);
-            console.log(data);
 
             // Add the current weather data to the weather_data map
             process_current_data(weather_data, data);
-            console.log(weather_data);
 
             // Update the html elements with the current weather data
             for (let [key, value] of weather_data) {
                 element = document.getElementById(key);
                 if (element) {
                     element.innerHTML = value;
-                    console.log(key, value, element);
                 } else {
-                    console.log(`Element with id ${key} not found.`);
+                    console.error(`Element with id ${key} not found.`);
                 }
             }
         }
@@ -114,8 +144,20 @@ xhr.onreadystatechange = function () {
             console.error("Error fetching current weather data:", xhr.statusText);
         }
     }
+    }
+    xhr.send();
+
+
+    // Update the weatherLabel with the city name
+    let weatherLabel = document.getElementById("weatherLabel");
+   
+    if (weatherLabel) {
+        weatherLabel.innerHTML = `${city} Weather`;
+        console.log(weatherLabel);
+    } else {
+        console.error("Element with id weatherLabel not found.");
+    }
 }
-xhr.send();
 
 // Adds daily weather data to the map, processes data when necessary
 function process_daily_data(weather_data, data) {
@@ -137,3 +179,4 @@ function process_current_data(weather_data, data) {
     weather_data.set("temperature_2m", data.current.temperature_2m);
     weather_data.set("relative_humidity_2m", data.current.relative_humidity_2m);
 }
+
